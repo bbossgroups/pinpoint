@@ -88,7 +88,7 @@ public class LinkSerializer extends JsonSerializer<Link> {
     }
 
     private void writeAgentId(String fieldName, Node node, JsonGenerator jgen) throws IOException {
-        if (node.getServiceType().isWas()) {
+        if (node.getServiceType().isWas() || node.getServiceType().isAlias()) {
             jgen.writeFieldName(fieldName);
             jgen.writeStartArray();
             ServerInstanceList serverInstanceList = node.getServerInstanceList();
